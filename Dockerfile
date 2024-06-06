@@ -7,8 +7,8 @@ WORKDIR /app
 COPY . .
 
 # Add retry logic for yarn install
-RUN yarn install --network-timeout 60000 --production || \
-    (echo "Retrying yarn install..." && yarn install --network-timeout 60000 --production)
+RUN npm install --network-timeout 60000 --production || \
+    (echo "Retrying yarn install..." && npm install --network-timeout 60000 --production)
 
 CMD ["node", "src/index.js"]
 
